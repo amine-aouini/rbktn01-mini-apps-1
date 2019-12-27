@@ -102,7 +102,7 @@ function checkHorizontal() {
       document.getElementById("hello").style.color = "#1EBCE0";
     }
 
-    if (result === 3 && choice === 'O') {
+    if (result === 30 && choice === 'O') {
       for (let i = 1; i < 10; i++) {
 
         document.getElementById(i).style.color = "#E12163"
@@ -130,7 +130,7 @@ function checkVertical() {
       document.getElementById("hello").style.color = "#1EBCE0";
     }
 
-    if (result === 3 && choice === 'O') {
+    if (result === 30 && choice === 'O') {
       for (let i = 1; i < 10; i++) {
 
         document.getElementById(i).style.color = "#E12163"
@@ -149,7 +149,7 @@ function majordiagnol() {
     result += table[i][i];
   }
 
-  if (result === 3 && choice === 'X') {
+  if (result === 3) {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#1EBCE0"
@@ -158,7 +158,7 @@ function majordiagnol() {
     document.getElementById("hello").style.color = "#1EBCE0";
   }
 
-  if (result === 6 && choice === 'O') {
+  if (result === 30) {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#E12163"
@@ -170,11 +170,11 @@ function majordiagnol() {
 
 function minordiagnol() {
   let result = 0;
-  for (let i = table[0].length - 2; i < 3; i++) {
+  for (let i = table[0].length - 1; i >= 0; i--) {
     result += table[i][i];
   }
 
-  if (result === 3 && choice === 'X') {
+  if (result === 3) {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#1EBCE0"
@@ -183,7 +183,7 @@ function minordiagnol() {
     document.getElementById("hello").style.color = "#1EBCE0";
   }
 
-  if (result === 6 && choice === 'O') {
+  if (result === 30) {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#E12163"
@@ -207,65 +207,53 @@ function clicker(div) {
 
     switch (id) {
       case "1": {
-        table[0][0] = 1;
+        if (choice === "X") { table[0][0] = 1; }
+        if (choice === "O") { table[0][0] = 10; }
         break;
       }
 
       case "2": {
         if (choice === "X") { table[0][1] = 1; }
-        if (choice === "O") { table[0][1] = 2; }
+        if (choice === "O") { table[0][1] = 10; }
         break;
       }
 
       case "3": {
         if (choice === "X") { table[0][2] = 1; }
-        if (choice === "O") { table[0][2] = 2; }
+        if (choice === "O") { table[0][2] = 10; }
         break;
       }
       case "4": {
         if (choice === "X") { table[1][0] = 1; }
-        if (choice === "O") { table[1][0] = 2; }
+        if (choice === "O") { table[1][0] = 10; }
         break;
       }
-        {
-          table[1][0] = 1;
-          break;
-        }
+
       case "5": {
         if (choice === "X") { table[1][1] = 1; }
-        if (choice === "O") { table[1][1] = 2; }
+        if (choice === "O") { table[1][1] = 10; }
         break;
       }
-        {
-          table[1][1] = 1;
-          break;
-        }
+
       case "6": {
         if (choice === "X") { table[1][2] = 1; }
-        if (choice === "O") { table[1][2] = 2; }
+        if (choice === "O") { table[1][2] = 10; }
         break;
       }
-        {
-          table[1][2] = 1;
-          break;
-        }
+
       case "7": {
         if (choice === "X") { table[2][0] = 1; }
-        if (choice === "O") { table[2][0] = 2; }
+        if (choice === "O") { table[2][0] = 10; }
         break;
       }
-        {
-          table[2][0] = 1;
-          break;
-        }
       case "8": {
         if (choice === "X") { table[2][1] = 1; }
-        if (choice === "O") { table[2][1] = 2; }
+        if (choice === "O") { table[2][1] = 10; }
         break;
       }
       case "9": {
         if (choice === "X") { table[2][2] = 1; }
-        if (choice === "O") { table[2][2] = 2; }
+        if (choice === "O") { table[2][2] = 10; }
       }
     }
 
