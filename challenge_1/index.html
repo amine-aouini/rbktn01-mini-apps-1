@@ -1,2 +1,75 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="app sprint n1">
+  <meta name="author" content="amin aouini">
+  <meta name="viewport" content="width=device-with, initial-scale=1.0">
+  <title>app 1</title>
 
+  <style>
+    body {
+      background-color: #B2EC4B;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    p {
+      color: gray;
+    }
+
+    #hello {
+      margin-left: 40%;
+      color: #7B5C0A;
+    }
+
+    #app {
+      display: grid;
+      grid-template-columns: 200px 200px 200px;
+      grid-template-rows: 200px 200px 200px;
+      margin-left: 30%;
+
+    }
+
+    .choices {
+      background-color: #E5F30D;
+      margin: 20px;
+      font-size: 160px;
+
+    }
+
+    #but {
+      background-color: gray;
+      border: hidden;
+      padding: 8px;
+      margin-left: 47%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="hello">welcome to tic tac toe</h1>
+  <div id="app">
+    <p class="choices" id="1" onclick="clicker(1)">#</p>
+
+    <p class="choices" id="2" onclick="clicker(2)">#</p>
+
+    <p class="choices" id="3" onclick="clicker(3)">#</p>
+
+    <p class="choices" id="4" onclick="clicker(4)">#</p>
+
+    <p class="choices" id="5" onclick="clicker(5)">#</p>
+
+    <p class="choices" id="6" onclick="clicker(6)">#</p>
+
+    <p class="choices" id="7" onclick="clicker(7)">#</p>
+
+    <p class="choices" id="8" onclick="clicker(8)">#</p>
+
+    <p class="choices" id="9" onclick="clicker(9)">#</p>
+  </div>
+  <button id="but" onclick="reset()">Play again</button>
+  <script src="app.js"></script>
+</body>
+
+</html>
