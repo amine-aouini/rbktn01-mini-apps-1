@@ -1,65 +1,167 @@
 const getId = document.getElementById;
+let table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 let choice = "X";
 
+// function checkHorizontal() {
+//   if (document.getElementById(1).innerText === "X" && document.getElementById(2).innerText === "X" && document.getElementById(3).innerText === "X" || document.getElementById(4).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(6).innerText === "X" || document.getElementById(7).innerText === "X" && document.getElementById(8).innerText === "X" && document.getElementById(9).innerText === "X") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#1EBCE0"
+//     }
+//     document.getElementById("hello").innerHTML = "X win last game, try one more time";
+//     document.getElementById("hello").style.color = "#1EBCE0";
+//   }
+
+//   if (document.getElementById(1).innerText === "O" && document.getElementById(2).innerText === "O" && document.getElementById(3).innerText === "O" || document.getElementById(4).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(6).innerText === "O" || document.getElementById(7).innerText === "O" && document.getElementById(8).innerText === "O" && document.getElementById(9).innerText === "O") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#E12163"
+//     }
+//     document.getElementById("hello").innerHTML = "O win last game, try one more time";
+//     document.getElementById("hello").style.color = "#E12163";
+
+//   }
+// }
+
+// function checkVertical() {
+//   if (document.getElementById(1).innerText === "X" && document.getElementById(4).innerText === "X" && document.getElementById(7).innerText === "X" || document.getElementById(8).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(2).innerText === "X" || document.getElementById(9).innerText === "X" && document.getElementById(6).innerText === "X" && document.getElementById(3).innerText === "X") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#1EBCE0"
+
+//     }
+//     document.getElementById("hello").innerHTML = "X win last game, try one more time";
+//     document.getElementById("hello").style.color = "#1EBCE0";
+//   }
+
+//   if (document.getElementById(1).innerText === "O" && document.getElementById(4).innerText === "O" && document.getElementById(1).innerText === "O" || document.getElementById(8).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(2).innerText === "O" || document.getElementById(9).innerText === "O" && document.getElementById(6).innerText === "O" && document.getElementById(3).innerText === "O") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#E12163"
+
+//     }
+//     document.getElementById("hello").innerHTML = "O win last game, try one more time";
+//     document.getElementById("hello").style.color = "#E12163";
+//   }
+// }
+
+// function majordiagnol() {
+//   if (document.getElementById(7).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(3).innerText === "X") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#1EBCE0"
+
+//     }
+//     document.getElementById("hello").innerHTML = "X win last game, try one more time";
+//     document.getElementById("hello").style.color = "#1EBCE0";
+//   }
+
+//   if (document.getElementById(7).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(3).innerText === "O") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#E12163"
+
+//     }
+//     document.getElementById("hello").innerHTML = "O win last game, try one more time";
+//     document.getElementById("hello").style.color = "#E12163";
+//   }
+// }
+
+// function minordiagnol() {
+//   if (document.getElementById(1).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(9).innerText === "X") {
+//     for (let i = 1; i < 10; i++) {
+
+//       document.getElementById(i).style.color = "#1EBCE0"
+
+//     }
+//     document.getElementById("hello").innerHTML = "X win last game, try one more time";
+//     document.getElementById("hello").style.color = "#1EBCE0";
+//   }
+
+//   if (document.getElementById(1).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(9).innerText === "O") {
+//     for (let i = 1; i < 10; i++) {
+//       document.getElementById(i).style.color = "#E12163"
+
+//     }
+//     document.getElementById("hello").innerHTML = "O win last game, try one more time";
+//     document.getElementById("hello").style.color = "#E12163";
+//   }
+// }
+
+// ====================================================
+// REFACTOR
 function checkHorizontal() {
-  if (document.getElementById(1).innerText === "X" && document.getElementById(2).innerText === "X" && document.getElementById(3).innerText === "X" || document.getElementById(4).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(6).innerText === "X" || document.getElementById(7).innerText === "X" && document.getElementById(8).innerText === "X" && document.getElementById(9).innerText === "X") {
-    for (let i = 1; i < 10; i++) {
+  for (let i = 0; i < table.length; i++) {
+    let result = table[i].reduce((acc, cur) => acc + cur);
+    if (result === 3 && choice === 'X') {
+      for (let i = 1; i < 10; i++) {
 
-      document.getElementById(i).style.color = "#1EBCE0"
+        document.getElementById(i).style.color = "#1EBCE0"
+      }
+      document.getElementById("hello").innerHTML = "X win last game, try one more time";
+      document.getElementById("hello").style.color = "#1EBCE0";
     }
-    document.getElementById("hello").innerHTML = "X win last game, try one more time";
-    document.getElementById("hello").style.color = "#1EBCE0";
+
+    if (result === 3 && choice === 'O') {
+      for (let i = 1; i < 10; i++) {
+
+        document.getElementById(i).style.color = "#E12163"
+      }
+      document.getElementById("hello").innerHTML = "O win last game, try one more time";
+      document.getElementById("hello").style.color = "#E12163";
+    }
   }
 
-  if (document.getElementById(1).innerText === "O" && document.getElementById(2).innerText === "O" && document.getElementById(3).innerText === "O" || document.getElementById(4).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(6).innerText === "O" || document.getElementById(7).innerText === "O" && document.getElementById(8).innerText === "O" && document.getElementById(9).innerText === "O") {
-    for (let i = 1; i < 10; i++) {
-
-      document.getElementById(i).style.color = "#E12163"
-    }
-    document.getElementById("hello").innerHTML = "O win last game, try one more time";
-    document.getElementById("hello").style.color = "#E12163";
-
-  }
 }
 
 function checkVertical() {
-  if (document.getElementById(1).innerText === "X" && document.getElementById(4).innerText === "X" && document.getElementById(7).innerText === "X" || document.getElementById(8).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(2).innerText === "X" || document.getElementById(9).innerText === "X" && document.getElementById(6).innerText === "X" && document.getElementById(3).innerText === "X") {
-    for (let i = 1; i < 10; i++) {
+  let result = 0;
+  for (let i = 0; i < table.length; i++) {
+    result += table[i][0];
+    result += table[i][1];
+    result += table[i][2];
 
-      document.getElementById(i).style.color = "#1EBCE0"
+    if (result === 3 && choice === 'X') {
+      for (let i = 1; i < 10; i++) {
 
+        document.getElementById(i).style.color = "#1EBCE0"
+      }
+      document.getElementById("hello").innerHTML = "X win last game, try one more time";
+      document.getElementById("hello").style.color = "#1EBCE0";
     }
-    document.getElementById("hello").innerHTML = "X win last game, try one more time";
-    document.getElementById("hello").style.color = "#1EBCE0";
+
+    if (result === 3 && choice === 'O') {
+      for (let i = 1; i < 10; i++) {
+
+        document.getElementById(i).style.color = "#E12163"
+      }
+      document.getElementById("hello").innerHTML = "O win last game, try one more time";
+      document.getElementById("hello").style.color = "#E12163";
+    }
+    result = 0;
   }
 
-  if (document.getElementById(1).innerText === "O" && document.getElementById(4).innerText === "O" && document.getElementById(1).innerText === "O" || document.getElementById(8).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(2).innerText === "O" || document.getElementById(9).innerText === "O" && document.getElementById(6).innerText === "O" && document.getElementById(3).innerText === "O") {
-    for (let i = 1; i < 10; i++) {
-
-      document.getElementById(i).style.color = "#E12163"
-
-    }
-    document.getElementById("hello").innerHTML = "O win last game, try one more time";
-    document.getElementById("hello").style.color = "#E12163";
-  }
 }
 
 function majordiagnol() {
-  if (document.getElementById(7).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(3).innerText === "X") {
+  let result = 0;
+  for (let i = 0; i < 3; i++) {
+    result += table[i][i];
+  }
+
+  if (result === 3 && choice === 'X') {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#1EBCE0"
-
     }
     document.getElementById("hello").innerHTML = "X win last game, try one more time";
     document.getElementById("hello").style.color = "#1EBCE0";
   }
 
-  if (document.getElementById(7).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(3).innerText === "O") {
+  if (result === 6 && choice === 'O') {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#E12163"
-
     }
     document.getElementById("hello").innerHTML = "O win last game, try one more time";
     document.getElementById("hello").style.color = "#E12163";
@@ -67,20 +169,24 @@ function majordiagnol() {
 }
 
 function minordiagnol() {
-  if (document.getElementById(1).innerText === "X" && document.getElementById(5).innerText === "X" && document.getElementById(9).innerText === "X") {
+  let result = 0;
+  for (let i = table[0].length - 2; i < 3; i++) {
+    result += table[i][i];
+  }
+
+  if (result === 3 && choice === 'X') {
     for (let i = 1; i < 10; i++) {
 
       document.getElementById(i).style.color = "#1EBCE0"
-
     }
     document.getElementById("hello").innerHTML = "X win last game, try one more time";
     document.getElementById("hello").style.color = "#1EBCE0";
   }
 
-  if (document.getElementById(1).innerText === "O" && document.getElementById(5).innerText === "O" && document.getElementById(9).innerText === "O") {
+  if (result === 6 && choice === 'O') {
     for (let i = 1; i < 10; i++) {
-      document.getElementById(i).style.color = "#E12163"
 
+      document.getElementById(i).style.color = "#E12163"
     }
     document.getElementById("hello").innerHTML = "O win last game, try one more time";
     document.getElementById("hello").style.color = "#E12163";
@@ -88,7 +194,9 @@ function minordiagnol() {
 }
 
 
+
 function clicker(div) {
+  let id = document.getElementById(div).id;
   if (document.getElementById(div).innerText === "#") {
     document.getElementById(div).innerHTML = choice;
     if (choice === "X") {
@@ -96,10 +204,77 @@ function clicker(div) {
     } else if (choice === "O") {
       document.getElementById(div).style.color = "#E12163";
     }
+
+    switch (id) {
+      case "1": {
+        table[0][0] = 1;
+        break;
+      }
+
+      case "2": {
+        if (choice === "X") { table[0][1] = 1; }
+        if (choice === "O") { table[0][1] = 2; }
+        break;
+      }
+
+      case "3": {
+        if (choice === "X") { table[0][2] = 1; }
+        if (choice === "O") { table[0][2] = 2; }
+        break;
+      }
+      case "4": {
+        if (choice === "X") { table[1][0] = 1; }
+        if (choice === "O") { table[1][0] = 2; }
+        break;
+      }
+        {
+          table[1][0] = 1;
+          break;
+        }
+      case "5": {
+        if (choice === "X") { table[1][1] = 1; }
+        if (choice === "O") { table[1][1] = 2; }
+        break;
+      }
+        {
+          table[1][1] = 1;
+          break;
+        }
+      case "6": {
+        if (choice === "X") { table[1][2] = 1; }
+        if (choice === "O") { table[1][2] = 2; }
+        break;
+      }
+        {
+          table[1][2] = 1;
+          break;
+        }
+      case "7": {
+        if (choice === "X") { table[2][0] = 1; }
+        if (choice === "O") { table[2][0] = 2; }
+        break;
+      }
+        {
+          table[2][0] = 1;
+          break;
+        }
+      case "8": {
+        if (choice === "X") { table[2][1] = 1; }
+        if (choice === "O") { table[2][1] = 2; }
+        break;
+      }
+      case "9": {
+        if (choice === "X") { table[2][2] = 1; }
+        if (choice === "O") { table[2][2] = 2; }
+      }
+    }
+
+    console.log(table)
+
     checkHorizontal();
     checkVertical();
-    minordiagnol();
     majordiagnol();
+    minordiagnol();
 
     if (choice === "X") {
       choice = "O";
@@ -116,6 +291,7 @@ function reset() {
     document.getElementById(i).innerHTML = '#';
 
   }
+  table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
   choice = 'X';
 
 }
