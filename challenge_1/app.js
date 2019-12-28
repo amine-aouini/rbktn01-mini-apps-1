@@ -91,8 +91,11 @@ let choice = "X";
 // ====================================================
 // REFACTOR
 function checkHorizontal() {
-  for (let i = 0; i < table.length; i++) {
-    let result = table[i].reduce((acc, cur) => acc + cur);
+  let result = 0;
+  for (let i = 0; i < table[0].length; i++) {
+    result += table[0][i];
+    result += table[1][i];
+    result += table[2][i];
     if (result === 3 && choice === 'X') {
       for (let i = 1; i < 10; i++) {
 
@@ -138,7 +141,6 @@ function checkVertical() {
       document.getElementById("hello").innerHTML = "O win last game, try one more time";
       document.getElementById("hello").style.color = "#E12163";
     }
-    result = 0;
   }
 
 }
@@ -171,26 +173,29 @@ function majordiagnol() {
 function minordiagnol() {
   let result = 0;
   for (let i = table[0].length - 1; i >= 0; i--) {
-    result += table[i][i];
-  }
+    var j = i == 2 ? 0 : i == 1 ? 1 : 2
+    result += table[i][j];
+    if (result === 3) {
+      for (let i = 1; i < 10; i++) {
 
-  if (result === 3) {
-    for (let i = 1; i < 10; i++) {
-
-      document.getElementById(i).style.color = "#1EBCE0"
+        document.getElementById(i).style.color = "#1EBCE0"
+      }
+      document.getElementById("hello").innerHTML = "X win last game, try one more time";
+      document.getElementById("hello").style.color = "#1EBCE0";
     }
-    document.getElementById("hello").innerHTML = "X win last game, try one more time";
-    document.getElementById("hello").style.color = "#1EBCE0";
-  }
 
-  if (result === 30) {
-    for (let i = 1; i < 10; i++) {
+    if (result === 30) {
+      for (let i = 1; i < 10; i++) {
 
-      document.getElementById(i).style.color = "#E12163"
+        document.getElementById(i).style.color = "#E12163"
+      }
+      document.getElementById("hello").innerHTML = "O win last game, try one more time";
+      document.getElementById("hello").style.color = "#E12163";
     }
-    document.getElementById("hello").innerHTML = "O win last game, try one more time";
-    document.getElementById("hello").style.color = "#E12163";
+
   }
+
+
 }
 
 
