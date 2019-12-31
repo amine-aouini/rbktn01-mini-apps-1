@@ -172,28 +172,31 @@ function majordiagnol() {
 
 function minordiagnol() {
   let result = 0;
-  for (let i = table[0].length - 1; i >= 0; i--) {
-    var j = i == 2 ? 0 : i == 1 ? 1 : 2
-    result += table[i][j];
-    if (result === 3) {
-      for (let i = 1; i < 10; i++) {
 
-        document.getElementById(i).style.color = "#1EBCE0"
-      }
-      document.getElementById("hello").innerHTML = "X win last game, try one more time";
-      document.getElementById("hello").style.color = "#1EBCE0";
+  // var j = i == 2 ? 0 : i == 1 ? 1 : 2
+  result += table[0][2];
+  result += table[1][1];
+  result += table[2][0];
+
+  if (result === 3) {
+    for (let i = 1; i < 10; i++) {
+
+      document.getElementById(i).style.color = "#1EBCE0"
     }
-
-    if (result === 30) {
-      for (let i = 1; i < 10; i++) {
-
-        document.getElementById(i).style.color = "#E12163"
-      }
-      document.getElementById("hello").innerHTML = "O win last game, try one more time";
-      document.getElementById("hello").style.color = "#E12163";
-    }
-
+    document.getElementById("hello").innerHTML = "X win last game, try one more time";
+    document.getElementById("hello").style.color = "#1EBCE0";
   }
+
+  if (result === 30) {
+    for (let i = 1; i < 10; i++) {
+
+      document.getElementById(i).style.color = "#E12163"
+    }
+    document.getElementById("hello").innerHTML = "O win last game, try one more time";
+    document.getElementById("hello").style.color = "#E12163";
+  }
+
+
 
 
 }

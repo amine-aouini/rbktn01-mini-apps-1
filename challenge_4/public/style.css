@@ -1,0 +1,14 @@
+#table {
+    display: grid;
+    background-color: yellow;
+    grid-template-columns: 90px 90px 90px 90px 90px 90px 90px;
+    grid-template-rows: 90px 90px 90px 90px 90px 90px;
+    width: 670px;
+}
+
+.circles {
+    background-color: gray;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
